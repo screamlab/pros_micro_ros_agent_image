@@ -1,0 +1,13 @@
+services:
+  agent:
+    image: registry.screamtrumpet.csie.ncku.edu.tw/pros_images/pros_micro_ros_agent_image:latest
+    container_name: moveit2_container
+    privileged: true
+    network_mode: host
+    ipc: host
+    pid: host
+    command: ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0 --baudrate 921600 -v4
+    volumes:
+      - /dev:/dev
+    environment:
+      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID}
