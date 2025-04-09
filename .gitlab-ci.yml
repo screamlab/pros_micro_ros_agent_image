@@ -10,9 +10,9 @@ variables:
 
 build_and_publish:
   stage: build
-  image: docker:28.0  # Use the Docker image for building
+  image: docker:24.0  # Use the Docker image for building
   services:
-    - docker:28.0-dind  # Docker-in-Docker service
+    - docker:24.0-dind  # Docker-in-Docker service
   variables:
     DOCKER_TLS_CERTDIR: ""  # Disable TLS for communication with Docker daemon
   before_script:
